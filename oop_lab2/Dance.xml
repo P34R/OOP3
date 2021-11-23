@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Dance>
+    <DanceEvent>
+        <Id>132</Id>
+        <Type>Ballroom</Type>
+        <Scene>Television studio</Scene>
+        <NumOfDancers>2</NumOfDancers>
+        <Music>Live</Music>
+        <Dancers>
+            <Dancer>
+                <Name>Roman</Name>
+                <Age>20</Age>
+                <WorkExp>2</WorkExp>
+            </Dancer>
+            <Dancer>
+                <Name>Irina</Name>
+                <Age>19</Age>
+                <WorkExp>3</WorkExp>
+            </Dancer>
+        </Dancers>
+        <Number>2</Number>
+    </DanceEvent>
+    <DanceEvent>
+        <Id>161</Id>
+        <Type>National</Type>
+        <Scene>Assembly Hall</Scene>
+        <NumOfDancers>4</NumOfDancers>
+        <Music>Phonogram</Music>
+        <Dancers>
+            <Dancer>
+                <Name>Andrey</Name>
+                <Age>33</Age>
+                <WorkExp>9</WorkExp>
+            </Dancer>
+            <Dancer>
+                <Name>Elya</Name>
+                <Age>29</Age>
+                <WorkExp>9</WorkExp>
+            </Dancer>
+            <Dancer>
+                <Name>Boris</Name>
+                <Age>31</Age>
+                <WorkExp>10</WorkExp>
+            </Dancer>
+            <Dancer>
+                <Name>Grigoriy</Name>
+                <Age>26</Age>
+                <WorkExp>7</WorkExp>
+            </Dancer>
+        </Dancers>
+        <Number>3</Number>
+    </DanceEvent>
+</Dance>

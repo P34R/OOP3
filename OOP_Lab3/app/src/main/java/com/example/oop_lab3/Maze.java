@@ -14,8 +14,7 @@ import java.util.Stack;
 public class Maze implements Drawable{
     private Paint wallPaint;
     private final boolean[][] mazeArray;
-
-
+    private Point start;
     private final int size;
     private final Point end=new Point(1,1);
     private int bestScore = 0;
@@ -28,7 +27,7 @@ public class Maze implements Drawable{
         return start;
     }
 
-    private Point start;
+
     public Maze(int size){
         wallPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         wallPaint.setColor(Color.MAGENTA);
@@ -50,35 +49,35 @@ public class Maze implements Drawable{
         Random random = new Random();
         Stack<Point>  route=new Stack<>();
         route.push(end);
-        while (route.size()>1){
+        while (route.size()>0){
             Point current=route.peek();
-            List<Point> unuseNeighbours=new LinkedList<>();
+            List<Point> unusedNeighbours=new LinkedList<>();
             // left
             if (current.x>2){
                 if (!isUsedCell(current.x-2,current.y)){
-                    unuseNeighbours.add(new Point(current.x-2,current.y));
+                    unusedNeighbours.add(new Point(current.x-2,current.y));
                 }
             }// top
             if (current.y>2){
                 if (!isUsedCell(current.x,current.y-2)){
-                    unuseNeighbours.add(new Point(current.x,current.y-2));
+                    unusedNeighbours.add(new Point(current.x,current.y-2));
                 }
             }
             // right
             if (current.x<size-2){
                 if (!isUsedCell(current.x+2,current.y)){
-                    unuseNeighbours.add(new Point(current.x+2,current.y));
+                    unusedNeighbours.add(new Point(current.x+2,current.y));
                 }
             }
             //
             if (current.y<size-2){
                 if (!isUsedCell(current.x,current.y+2)){
-                    unuseNeighbours.add(new Point(current.x,current.y+2));
+                    unusedNeighbours.add(new Point(current.x,current.y+2));
                 }
             }
-            if (unuseNeighbours.size()>0){
-                int rnd=random.nextInt(unuseNeighbours.size());
-                Point direction=unuseNeighbours.get(rnd);
+            if (unusedNeighbours.size()>0){
+                int rnd=random.nextInt(unusedNeighbours.size());
+                Point direction=unusedNeighbours.get(rnd);
                 int diffX=(direction.x-current.x)/2;
                 int diffY=(direction.y-current.y)/2;
                 mazeArray[current.y+diffY][current.x+diffX]=true;
@@ -113,7 +112,7 @@ public class Maze implements Drawable{
             for (int j=0;j<size;j++){
                 if (!mazeArray[i][j]){
                     float left=j*cellSize+rect.left;
-                    float top = j*cellSize+rect.top;
+                    float top = i*cellSize+rect.top;
                     canvas.drawRect(left,top,left+cellSize,top+cellSize, wallPaint);
                 }
             }

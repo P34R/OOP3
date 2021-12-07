@@ -1,5 +1,6 @@
 package com.example.oop_lab3;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.view.GestureDetector;
@@ -16,6 +17,7 @@ public class Manager extends GestureDetector.SimpleOnGestureListener {
     private Exit exit;
     private Rect rect = new Rect();
     private int screenSize=0;
+
     public void setView(View view) {
         this.view = view;
     }
@@ -63,10 +65,11 @@ public class Manager extends GestureDetector.SimpleOnGestureListener {
     }
     private void create(int size){
         maze = new Maze(size);
-        player = new Player(maze.getStart(), size);
         exit = new Exit(maze.getEnd(),size);
+        player = new Player(maze.getStart(), size);
+
     }
-    public void draw(Canvas canvas, Rect rect){
+    public void draw(Canvas canvas){
         maze.draw(canvas,rect);
         exit.draw(canvas,rect);
         player.draw(canvas,rect);

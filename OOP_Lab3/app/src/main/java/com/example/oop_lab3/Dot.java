@@ -11,6 +11,7 @@ public class Dot implements Drawable{
     protected Point point;
     protected Paint paint;
     private int size;
+
     public Point getPoint() {
         return point;
     }

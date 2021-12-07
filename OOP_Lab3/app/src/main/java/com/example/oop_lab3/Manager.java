@@ -54,7 +54,7 @@ public class Manager extends GestureDetector.SimpleOnGestureListener {
         }
         player.goTo(stepX,stepY);
         if (exit.getPoint().equals(player.getPoint())){
-            create(maze.getSize()+2);
+            create(Math.min(maze.getSize() + 2, 60));
         }
         view.invalidate();
         return super.onFling(e1,e2,velocityX,velocityY);
